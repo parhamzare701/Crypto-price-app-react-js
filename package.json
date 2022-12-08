@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,9 +11,15 @@
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "antd": "^4.24.1",
+    "mui": "^0.0.1",
+    "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-pro-sidebar": "^1.0.0-alpha.7",
     "react-scripts": "5.0.1",
+    "sass": "^1.56.1",
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
   },
@@ -20,7 +27,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "scss": "node-sass src/style.scss dist/style.css",
+    "build:sass": "node-sass -r --output-style compressed src/style.scss -o dist",
+    "watch:sass": "node-sass -w src/style/style.scss src/style/style.css --output-style compressed"
   },
   "eslintConfig": {
     "extends": [

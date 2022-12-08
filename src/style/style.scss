@@ -1,0 +1,169 @@
+$font-md: 1rem;
+$font-sm: 0.5rem;
+$font-lg: 1.5rem;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+$color-blue: #007bff;
+$color-white: #ffffff;
+
+.filter {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &__menu {
+    min-height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.2rem;
+    &__title{
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+
+    &__dropdown {
+      &--open {
+        font-size: 1.5rem;
+      }
+      &--close{
+        font-size: 1.5rem;
+      }
+    }
+  }
+  &__options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.market {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1c;
+
+  &__container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    min-height: 30vh;
+    min-width: 80%;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__title {
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      width: 100%;
+      border-bottom: 0.2rem solid rgb(146, 141, 141);
+    }
+
+    &__loading {
+      font-weight: 600;
+      font-size: $font-lg;
+    }
+  }
+
+  .coin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &__row {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      height: 5rem;
+      border-bottom: 0.063rem solid #d7d7d7;
+      width: 90%;
+
+      &__price {
+        display: flex;
+        text-align: left;
+        justify-content: space-between;
+        min-width: 100%;
+
+        &__name {
+          width: 6.8rem;
+        }
+
+        &__img {
+          height: 1.8rem;
+          width: 1.8rem;
+          margin-right: .6rem;
+        }
+
+        &__symbol {
+          text-transform: uppercase;
+          width: 6.8rem;
+        }
+
+        &__amount {
+          width: 6.8rem;
+        }
+
+        &__volume {
+          width: 9.6rem;
+        }
+
+        &__marketcap {
+          width: 14.3rem;
+        }
+
+        &__percent {
+          width: 6.2rem;
+
+          &--red {
+            color: #f00606;
+          }
+
+          &--green {
+            color: #11d811;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 72rem) {
+  .coin__row__price {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    >* {
+      flex-shrink: 0;
+    }
+  }
+}
