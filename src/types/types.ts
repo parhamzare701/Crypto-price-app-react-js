@@ -7,6 +7,15 @@ export interface CryptoInfoData {
   priceChange: number;
   marketcap: number;
 }
+export interface MoreInfoModalData {
+  closeMoreInfoModal: () => void;
+  name: string;
+  symbol: string;
+  price: number;
+  volume: number;
+  marketcap: number;
+  priceChange: number;
+}
 export interface CryptoResultData {
   id: string;
   current_price: number;
@@ -15,14 +24,4 @@ export interface CryptoResultData {
   symbol: string;
   market_cap: number;
   price_change_percentage_24h: number;
-}
-export interface CryptoFilterData {
-  isChecked: {
-    upwardTrend: boolean,
-    downwardTrend: boolean
-  }
-  setIsChecked: (isChecked: {
-    upwardTrend: boolean,
-    downwardTrend: boolean
-  }) => void;
 }

@@ -19,6 +19,14 @@ body {
     "Segoe UI Symbol";
 }
 
+@mixin modalInfo {
+  font-weight: 530;
+  &__text{
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: rgb(96, 93, 93);
+  }
+}
 $color-blue: #007bff;
 $color-white: #ffffff;
 
@@ -72,7 +80,6 @@ $color-white: #ffffff;
     display: flex;
     align-items: center;
     flex-direction: column;
-
     &__title {
       text-align: center;
       margin-top: 1rem;
@@ -81,13 +88,20 @@ $color-white: #ffffff;
       width: 100%;
       border-bottom: 0.2rem solid rgb(146, 141, 141);
     }
-
     &__loading {
       font-weight: 600;
       font-size: $font-lg;
     }
+    &__input {
+      margin: .5rem;
+      width: 50%;
+      outline: none;
+      text-align: center;
+      padding: .6rem;
+      border-radius: .4rem;
+      border: .1rem solid #1a1a1c;
+    }
   }
-
   .coin {
     width: 100%;
     display: flex;
@@ -110,8 +124,8 @@ $color-white: #ffffff;
 
         &__name {
           width: 6.8rem;
+          cursor: pointer;
         }
-
         &__img {
           height: 1.8rem;
           width: 1.8rem;
@@ -150,7 +164,70 @@ $color-white: #ffffff;
     }
   }
 }
+.moreinfo{
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgba(0,0,0,.8);
+  &__container{
+    min-height: 65vh;
+    min-width: 90%;
+    background-color: #fff;
+    border-radius: .4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.3rem;
+    &__name{
+      margin-top: 4rem;
+      font-weight: 800;
+      font-size: 1.7rem;
+    }
+    &__symbol{
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    &__price{
+     @include modalInfo();
+    }
+    &__volume{
+      @include modalInfo();
+    }
+    &__marketcap{
+      @include modalInfo();
+    }
+    &__pricechange{
+      @include modalInfo();
+      &--red {
+        color: #f00606;
+      }
 
+      &--green {
+        color: #11d811;
+      }
+    }
+    &__btn{
+      width: 50%;
+      background: transparent;
+      color: #007bff;
+      font-size: 1.2rem;
+      padding: 1rem;
+      border: .1rem solid #007bff;
+      border-radius: .4rem;
+      cursor: pointer;
+      &:hover{
+        transition: .3s all;
+        background: #007bff;
+        color: #fff;
+      }
+    }
+  }
+}
 @media (max-width: 72rem) {
   .coin__row__price {
     width: 100%;
@@ -163,7 +240,7 @@ $color-white: #ffffff;
     }
 
     >* {
-      flex-shrink: 0;
+      flex-shrink: 0; 
     }
   }
 }
